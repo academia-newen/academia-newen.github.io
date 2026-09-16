@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academia de Fútbol Newen | Fútbol para adultos</title>
+  <meta name="description" content="Academia de fútbol para adultos en Temuco y Padre Las Casas: entrenamientos dos veces por semana, metodología profesional, arqueros y rama femenina.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://academia-newen.github.io/t/a">
+  <meta name="theme-color" content="#0b0f0a">
+
+  <link rel="icon" type="image/png" href="/img/icono-180.png">
+  <link rel="apple-touch-icon" href="/img/icono-180.png">
+
+  <meta property="og:title" content="Academia de Fútbol Newen | Fútbol para adultos">
+  <meta property="og:description" content="Academia de fútbol para adultos en Temuco y Padre Las Casas: entrenamientos dos veces por semana, metodología profesional, arqueros y rama femenina.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://academia-newen.github.io/t/a">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="Academia de Fútbol Newen">
+  <meta property="og:image" content="https://academia-newen.github.io/img/plantel-padre-las-casas.jpg">
+</head>
+<body>
+
+<!-- Propuesta A: Noche de cancha. Oscuro, verde neón y tipografía condensada,
+     siguiendo el lenguaje de los flyers 2025-2026 del club. Los datos
+     ({{...}}) salen de NEGOCIO en src/site.config.mjs. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fondo: #0b0f0a; --panel: #131a11; --texto: #f2f5ee; --suave: #d9e0cf; --apagado: #a9b39d;
+    --pie: #8a967f; --acento: #c6f000; --linea: rgba(198, 240, 0, 0.18);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--fondo); color: var(--texto); font-family: 'Barlow', 'Arial Narrow', Arial, sans-serif; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; }
+  a { color: var(--acento); text-decoration: none; }
+  a:hover { color: #fff; }
+  .display { font-family: 'Bebas Neue', 'Impact', 'Arial Narrow', sans-serif; font-weight: 400; letter-spacing: 0.01em; line-height: 0.92; }
+  .contenedor { width: 100%; max-width: 1312px; margin: 0 auto; padding: 0 16px; }
+  .etiqueta { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--acento); }
+  .boton { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 22px; border-radius: 4px; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+  .boton-primario { background: var(--acento); color: var(--fondo); }
+  .boton-primario:hover { background: #fff; color: var(--fondo); }
+  .boton-secundario { border: 2px solid #fff; color: #fff; }
+  .boton-secundario:hover { border-color: var(--acento); color: var(--acento); }
+  .boton svg { width: 18px; height: 18px; }
+
+  /* Cabecera */
+  .cabecera { position: sticky; top: 0; z-index: 20; background: rgba(11, 15, 10, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--linea); }
+  .cabecera .contenedor { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
+  .marca { display: flex; align-items: center; gap: 10px; color: #fff; }
+  .marca img { width: 44px; height: 40px; object-fit: contain; }
+  .marca-titulo { font-size: 22px; line-height: 1; }
+  .marca-sub { display: none; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--acento); margin-top: 3px; }
+  .menu { display: none; align-items: center; gap: 28px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+  .menu a { color: var(--suave); }
+  .menu a:hover { color: var(--acento); }
+  .cabecera .boton { min-height: 40px; padding: 8px 14px; font-size: 13px; }
+
+  /* Hero */
+  .hero { position: relative; min-height: 560px; display: flex; align-items: flex-end; overflow: hidden; }
+  .hero-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.6) contrast(1.1); }
+  .hero-velo { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,15,10,0.35) 0%, rgba(11,15,10,0.9) 70%, rgba(11,15,10,0.98) 100%); }
+  .hero-corte { position: absolute; right: 0; top: 0; width: 46%; height: 100%; background: rgba(198, 240, 0, 0.10); clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%); }
+  .hero .contenedor { position: relative; padding-top: 48px; padding-bottom: 40px; display: flex; flex-direction: column; gap: 18px; }
+  .hero-chip { align-self: flex-start; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--acento); border: 1px solid var(--acento); padding: 7px 12px; }
+  .hero h1 { margin: 0; font-size: clamp(64px, 12vw, 150px); color: #fff; text-wrap: balance; max-width: 860px; }
+  .hero h1 span { color: var(--acento); }
+  .hero p { margin: 0; font-size: 18px; color: var(--suave); max-width: 640px; }
+  .hero-acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+
+  /* Secciones */
+  .seccion { padding: 64px 0 48px; }
+  .seccion-cabeza { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+  .seccion-cabeza h2 { margin: 0; font-size: clamp(44px, 7vw, 72px); color: #fff; }
+  .seccion-cabeza p { margin: 0; font-size: 17px; color: var(--apagado); max-width: 460px; }
+  .programas { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .programa { display: flex; flex-direction: column; gap: 10px; background: var(--panel); border-top: 4px solid var(--acento); padding: 24px 20px 26px; }
+  .programa.blanco { border-top-color: #fff; }
+  .programa.blanco .etiqueta { color: #fff; }
+  .programa h3 { margin: 0; font-size: 40px; color: #fff; }
+  .programa .recinto { font-size: 16px; color: var(--suave); }
+  .programa .horario { font-size: 16px; color: var(--apagado); }
+
+  .metodologia { display: grid; grid-template-columns: 1fr; }
+  .metodologia img { width: 100%; height: 300px; object-fit: cover; filter: saturate(0.7); }
+  .metodologia-texto { background: var(--acento); color: var(--fondo); padding: 40px 20px; display: flex; flex-direction: column; gap: 20px; }
+  .metodologia-texto .etiqueta { color: var(--fondo); font-weight: 700; }
+  .metodologia-texto h2 { margin: 0; font-size: clamp(44px, 7vw, 68px); }
+  .metodologia-lista { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 0; padding: 0; list-style: none; font-size: 17px; font-weight: 600; line-height: 1.35; }
+  .metodologia-lista li { border-left: 3px solid var(--fondo); padding-left: 12px; }
+  .metodologia-texto p { margin: 0; font-size: 16px; max-width: 520px; }
+
+  .copa { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
+  .copa-texto { display: flex; flex-direction: column; gap: 18px; }
+  .copa-texto h2 { margin: 0; font-size: clamp(56px, 9vw, 96px); color: #fff; }
+  .copa-texto p { margin: 0; font-size: 18px; color: var(--apagado); max-width: 560px; }
+  .cifras { display: flex; flex-wrap: wrap; gap: 24px 36px; margin-top: 6px; }
+  .cifra { display: flex; flex-direction: column; }
+  .cifra b { font-size: 56px; line-height: 1; color: var(--acento); font-weight: 400; }
+  .cifra span { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--apagado); }
+  .copa-foto { position: relative; margin-bottom: 24px; }
+  .copa-foto img { width: 100%; height: 360px; object-fit: cover; }
+  .copa-foto .sello { position: absolute; left: 0; bottom: -20px; background: var(--acento); color: var(--fondo); padding: 10px 18px; font-size: 26px; }
+
+  .contacto { margin: 0 0 40px; background: var(--panel); border: 1px solid rgba(198, 240, 0, 0.25); padding: 36px 20px; display: flex; flex-direction: column; gap: 22px; }
+  .contacto h2 { margin: 0; font-size: clamp(44px, 7vw, 64px); color: #fff; }
+  .contacto p { margin: 8px 0 0; font-size: 17px; color: var(--apagado); }
+  .contacto-acciones { display: flex; flex-direction: column; gap: 12px; }
+  .contacto-acciones .boton { font-size: 17px; }
+  .redes { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 15px; color: var(--suave); }
+  .redes a { color: var(--suave); text-decoration: underline; text-underline-offset: 3px; }
+  .redes a:hover { color: var(--acento); }
+
+  .pie { border-top: 1px solid var(--linea); padding: 22px 0; font-size: 12px; color: var(--pie); letter-spacing: 0.06em; text-transform: uppercase; }
+  .pie .contenedor { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; }
+
+  @media (min-width: 640px) {
+    .contenedor { padding: 0 32px; }
+    .marca-sub { display: block; }
+    .programas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .metodologia-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; }
+    .contacto { padding: 44px 40px; }
+    .contacto-acciones { flex-direction: row; flex-wrap: wrap; align-items: center; }
+  }
+  @media (min-width: 900px) {
+    .menu { display: flex; }
+    .hero { min-height: 720px; }
+    .hero .contenedor { padding-bottom: 72px; }
+    .hero p { font-size: 21px; }
+    .seccion { padding: 88px 0 64px; }
+    .seccion-cabeza { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 40px; }
+    .metodologia { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .metodologia img { height: 100%; min-height: 520px; }
+    .metodologia-texto { padding: 64px; }
+    .copa { grid-template-columns: 1.2fr 1fr; gap: 56px; }
+    .copa-foto { margin-left: 24px; }
+    .copa-foto .sello { left: -24px; bottom: -24px; }
+    .contacto { flex-direction: row; align-items: center; justify-content: space-between; padding: 56px 64px; }
+    .contacto-acciones { flex-direction: column; align-items: flex-end; }
+  }
+  @media (min-width: 1100px) {
+    .contenedor { padding: 0 64px; }
+    .programas { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+  }
+</style>
+
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="#inicio" aria-label="Academia de Fútbol Newen, inicio">
+      <img src="/img/logo-newen.webp" alt="Escudo de Academia de Fútbol Newen" width="44" height="40">
+      <span>
+        <span class="display marca-titulo">Academia Newen</span>
+        <span class="marca-sub">Fútbol adultos · Temuco y Padre Las Casas</span>
+      </span>
+    </a>
+    <nav class="menu" aria-label="Secciones">
+      <a href="#programas">Programas</a>
+      <a href="#metodologia">Metodología</a>
+      <a href="#copa">Copa Newen</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="boton boton-primario" href="https://wa.me/56999084457" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <img class="hero-foto" src="/img/entrenamiento-noche.jpg" alt="Entrenamiento nocturno de la academia" width="1440" height="811">
+    <div class="hero-velo"></div>
+    <div class="hero-corte"></div>
+    <div class="contenedor">
+      <span class="hero-chip">10 años aportando al deporte de la región</span>
+      <h1 class="display">Entrena como un <span>profesional</span></h1>
+      <p>Academia de fútbol para adultos en Temuco y Padre Las Casas. Dos entrenamientos por semana con metodología del fútbol profesional, amistosos mensuales y campeonatos propios.</p>
+      <div class="hero-acciones">
+        <a class="boton boton-primario" href="https://wa.me/56999084457" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        <a class="boton boton-secundario" href="#programas">Ver sedes y horarios</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="programas">
+    <div class="contenedor">
+      <div class="seccion-cabeza">
+        <h2 class="display">Cuatro programas,<br>dos comunas</h2>
+        <p>Elige tu sede y tu programa. Todos entrenan con el mismo cuerpo técnico y la misma exigencia.</p>
+      </div>
+      <div class="programas">
+        <article class="programa">
+          <span class="etiqueta">Adultos</span>
+          <h3 class="display">Temuco</h3>
+          <span class="recinto">Estadio Pueblo Nuevo</span>
+          <span class="horario">Lunes y miércoles, 18:30 a 20:00</span>
+        </article>
+        <article class="programa">
+          <span class="etiqueta">Adultos</span>
+          <h3 class="display">Padre Las Casas</h3>
+          <span class="recinto">Estadio El Alto</span>
+          <span class="horario">Lunes 19:00 a 21:00 y miércoles 21:00 a 22:30</span>
+        </article>
+        <article class="programa blanco">
+          <span class="etiqueta">Específico</span>
+          <h3 class="display">Arqueros</h3>
+          <span class="recinto">Preparación específica en ambas sedes</span>
+          <span class="horario">Temuco: Lunes, 18:30 a 20:00<br>Padre Las Casas: Lunes, 19:00 a 21:00</span>
+        </article>
+        <article class="programa blanco">
+          <span class="etiqueta">Nuevo 2026</span>
+          <h3 class="display">Femenino</h3>
+          <span class="recinto">Cancha 3, Estadio Germán Becker</span>
+          <span class="horario">Lunes y viernes, 19:00 a 20:00<br>Clase de prueba gratuita</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="metodologia" id="metodologia">
+    <img src="/img/partido.jpg" alt="Jugadores de la academia en un partido" width="1440" height="962" loading="lazy">
+    <div class="metodologia-texto">
+      <span class="etiqueta">Metodología</span>
+      <h2 class="display">Basada en el fútbol profesional</h2>
+      <ul class="metodologia-lista">
+        <li>Ejercicios técnicos, físicos y tácticos</li>
+        <li>Entrenamientos dos veces por semana</li>
+        <li>Partidos amistosos mensuales</li>
+        <li>Organización de campeonatos</li>
+      </ul>
+      <p>A cargo de Sebastián Matus, Encargado y profesor, preparador físico de fútbol profesional.</p>
+    </div>
+  </section>
+
+  <section class="seccion" id="copa">
+    <div class="contenedor copa">
+      <div class="copa-texto">
+        <span class="etiqueta">Copa Newen</span>
+        <h2 class="display">El cuadrangular<br>de verano</h2>
+        <p>Desde 2023 la academia organiza su propia copa entre las sedes de Temuco y Padre Las Casas y academias invitadas. La edición 2026 se jugó en la Cancha Las Rocas.</p>
+        <div class="cifras">
+          <div class="cifra"><b class="display">3</b><span>Ediciones: 2023, 2025 y 2026</span></div>
+          <div class="cifra"><b class="display">4</b><span>Equipos por edición</span></div>
+          <div class="cifra"><b class="display">2026</b><span>Última edición, Cancha Las Rocas</span></div>
+        </div>
+      </div>
+      <div class="copa-foto">
+        <img src="/img/copa-trofeos.jpg" alt="Trofeos de la Copa Newen" width="1000" height="999" loading="lazy">
+        <span class="sello display">Copa Newen</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="contacto" style="padding-top: 0;">
+    <div class="contenedor">
+      <div class="contacto">
+        <div>
+          <h2 class="display">Súmate esta temporada</h2>
+          <p>Escríbenos y te contamos horarios, valores y cómo llegar a tu sede.</p>
+        </div>
+        <div class="contacto-acciones">
+          <a class="boton boton-primario" href="https://wa.me/56999084457" target="_blank" rel="noopener">WhatsApp +56 9 9908 4457</a>
+          <div class="redes">
+            <a href="https://www.instagram.com/academiadefutbol_newen/" target="_blank" rel="noopener">@academiadefutbol_newen</a>
+            <a href="https://www.facebook.com/Academiadefutbolnewen" target="_blank" rel="noopener">Facebook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <span>Academia de Fútbol Newen · Temuco y Padre Las Casas</span>
+    <span>Sitio hecho por INCBA</span>
+  </div>
+</footer>
+
+</body>
+</html>
