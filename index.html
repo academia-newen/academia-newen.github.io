@@ -27,7 +27,7 @@
   <!-- Cada dirección es una página completa dentro de su propio documento. El
        marco la muestra a pantalla completa y le cambia la fuente cuando el
        toggle pasa a la siguiente, igual que en kuyen-web. -->
-  <iframe id="nw-marco" title="Propuesta Noche de cancha" src="/t/a"></iframe>
+  <iframe id="nw-marco" title="Propuesta Espectáculo" src="/t/a"></iframe>
 
   <!-- ThemeToggle: copia del de Pagos Pendientes y Tipo de Cambio
        (src/components/theme-toggle.tsx en los dos repos), en su tamaño sm y con
@@ -39,7 +39,7 @@
        en <html> cambia la fuente del marco, porque cada propuesta vive en su
        propio documento. -->
   <div class="nw-posicion">
-    <button type="button" class="nw-toggle" aria-label="Cambiar de propuesta" title="Propuesta Noche de cancha" data-tema-boton>
+    <button type="button" class="nw-toggle" aria-label="Cambiar de propuesta" title="Propuesta Espectáculo" data-tema-boton>
       <span class="nw-knob" data-tema-knob><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
     </button>
   </div>
@@ -103,7 +103,7 @@
   (function () {
     'use strict'
 
-    var TEMAS = [{"id":"a","nombre":"Noche de cancha","icono":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z\"/></svg>","ruta":"/t/a"},{"id":"b","nombre":"Club institucional","icono":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"/></svg>","ruta":"/t/b"},{"id":"c","nombre":"Editorial fotográfico","icono":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z\"/><circle cx=\"12\" cy=\"13\" r=\"3\"/></svg>","ruta":"/t/c"}]
+    var TEMAS = [{"id":"a","nombre":"Espectáculo","icono":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z\"/></svg>","ruta":"/t/a"},{"id":"b","nombre":"Institucional","icono":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"/></svg>","ruta":"/t/b"},{"id":"c","nombre":"Editorial","icono":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z\"/><circle cx=\"12\" cy=\"13\" r=\"3\"/></svg>","ruta":"/t/c"}]
     var CLAVE = 'newen-tema'
 
     // POSITIONS del toggle sm de PP: translate-x-1, translate-x-[1.625rem],

@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<!-- Propuesta A: Noche de cancha. Oscuro, verde neón y tipografía condensada,
+<!-- Propuesta A: Espectáculo. Oscuro, verde neón y tipografía condensada,
      siguiendo el lenguaje de los flyers 2025-2026 del club. Los datos
      ({{...}}) salen de NEGOCIO en src/site.config.mjs. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -95,6 +95,17 @@
   .metodologia-lista li { border-left: 3px solid var(--fondo); padding-left: 12px; }
   .metodologia-texto p { margin: 0; font-size: 16px; max-width: 520px; }
 
+  .equipo { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .persona { display: flex; gap: 16px; background: var(--panel); border: 1px solid var(--linea); padding: 22px 20px; }
+  .persona-iniciales { flex: none; width: 56px; height: 56px; border-radius: 50%; background: var(--acento); color: var(--fondo); display: flex; align-items: center; justify-content: center; font-size: 22px; }
+  .persona-texto { display: flex; flex-direction: column; gap: 4px; }
+  .persona-texto b { font-size: 20px; color: #fff; }
+  .persona-texto .rol { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--acento); }
+  .persona-texto p { margin: 4px 0 0; font-size: 15px; color: var(--apagado); }
+  .colaboradores { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .colaborador { display: flex; flex-direction: column; gap: 2px; border: 1px solid var(--linea); padding: 10px 14px; min-width: 0; }
+  .colaborador b { font-size: 15px; color: #fff; }
+  .colaborador span { font-size: 12px; color: var(--apagado); }
   .copa { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
   .copa-texto { display: flex; flex-direction: column; gap: 18px; }
   .copa-texto h2 { margin: 0; font-size: clamp(56px, 9vw, 96px); color: #fff; }
@@ -123,6 +134,7 @@
     .contenedor { padding: 0 32px; }
     .marca-sub { display: block; }
     .programas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .equipo { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
     .metodologia-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; }
     .contacto { padding: 44px 40px; }
     .contacto-acciones { flex-direction: row; flex-wrap: wrap; align-items: center; }
@@ -161,6 +173,7 @@
     <nav class="menu" aria-label="Secciones">
       <a href="#programas">Programas</a>
       <a href="#metodologia">Metodología</a>
+      <a href="#quienes-somos">Quiénes somos</a>
       <a href="#copa">Copa Newen</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -231,6 +244,45 @@
         <li>Organización de campeonatos</li>
       </ul>
       <p>A cargo de Sebastián Matus, Encargado y profesor, preparador físico de fútbol profesional.</p>
+    </div>
+  </section>
+
+  <section class="seccion" id="quienes-somos">
+    <div class="contenedor">
+      <div class="seccion-cabeza">
+        <h2 class="display">Quiénes somos</h2>
+        <p>Diez años aportando al deporte de la región. Este es el equipo que dirige cada entrenamiento y las marcas que acompañan a la academia.</p>
+      </div>
+      <div class="equipo">
+        <article class="persona">
+          <span class="persona-iniciales display" aria-hidden="true">SM</span>
+          <div class="persona-texto"><b>Sebastián Matus</b><span class="rol">Encargado y profesor</span><p>Profesor de Educación Física y Salud, preparador físico de fútbol profesional. Coordina la Copa Newen.</p></div>
+        </article>
+        <article class="persona">
+          <span class="persona-iniciales display" aria-hidden="true">JS</span>
+          <div class="persona-texto"><b>Javier Sáez Maturana</b><span class="rol">Profesor</span><p>Profesor de Educación Física y Salud, especialista en ejercicio físico y salud.</p></div>
+        </article>
+        <article class="persona">
+          <span class="persona-iniciales display" aria-hidden="true">CA</span>
+          <div class="persona-texto"><b>Claudio Andrades</b><span class="rol">Preparador de arqueros</span><p>A cargo del entrenamiento específico de arqueros en ambas sedes. Formación INAF.</p></div>
+        </article>
+        <article class="persona">
+          <span class="persona-iniciales display" aria-hidden="true">EP</span>
+          <div class="persona-texto"><b>Erick Painenao</b><span class="rol">Preparación física</span><p>Profesional del área de preparación física de la academia.</p></div>
+        </article>
+        
+      </div>
+      <div class="colaboradores">
+        <div class="colaborador"><b>Lion Training</b><span>Centro de ejercicio físico y salud, Padre Las Casas</span></div>
+        <div class="colaborador"><b>Lion Suplementos</b><span>Suplementación deportiva</span></div>
+        <div class="colaborador"><b>MS Sports</b><span>Suplementación deportiva</span></div>
+        <div class="colaborador"><b>Clínica KinetMec</b><span>Rehabilitación física</span></div>
+        <div class="colaborador"><b>Goal Factory</b><span>Fútbol</span></div>
+        <div class="colaborador"><b>Harry Barbershop</b><span>Sponsor</span></div>
+        <div class="colaborador"><b>La Quadrada Pizza</b><span>Sponsor</span></div>
+        <div class="colaborador"><b>Enzo Sports</b><span>Sponsor</span></div>
+        
+      </div>
     </div>
   </section>
 

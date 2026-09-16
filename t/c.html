@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<!-- Propuesta C: Editorial fotográfico. Fotos a sangre, secciones numeradas y
+<!-- Propuesta C: Editorial. Fotos a sangre, secciones numeradas y
      titulares grandes. Los datos ({{...}}) salen de NEGOCIO en
      src/site.config.mjs. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,6 +90,16 @@
   .cita blockquote { margin: 0; font-size: clamp(22px, 3vw, 30px); line-height: 1.3; font-weight: 500; text-wrap: pretty; }
   .cita cite { display: block; margin-top: 14px; font-style: normal; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--verde); }
 
+  .equipo { display: grid; grid-template-columns: 1fr; gap: 24px; margin-bottom: 36px; }
+  .persona { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--texto); padding-top: 14px; }
+  .persona .iniciales { font-size: 48px; line-height: 1; color: var(--verde); }
+  .persona b { font-size: 19px; }
+  .persona .rol { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--verde); }
+  .persona p { margin: 4px 0 0; font-size: 15px; color: var(--apagado); }
+  .colaboradores { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 15px; }
+  .colaboradores div { display: flex; gap: 8px; align-items: baseline; }
+  .colaboradores b { font-weight: 700; }
+  .colaboradores span { font-size: 13px; color: var(--apagado); }
   .copa { margin-top: 40px; background: var(--texto); color: var(--fondo); padding: 56px 0; }
   .copa .contenedor { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
   .copa-texto { display: flex; flex-direction: column; gap: 18px; }
@@ -109,6 +119,7 @@
     .sede img { height: 320px; }
     .sede-lista div { flex-direction: row; justify-content: space-between; gap: 16px; }
     .pilares { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+    .equipo { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .cita { grid-template-columns: 1fr 2fr; gap: 40px; }
   }
   @media (min-width: 900px) {
@@ -120,6 +131,7 @@
     .seccion { padding: 80px 0 40px; }
     .sedes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .pilares { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+    .equipo { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
     .copa { padding: 72px 0; }
     .copa .contenedor { grid-template-columns: 1fr 1fr; gap: 48px; }
     .copa img { height: 440px; }
@@ -140,6 +152,7 @@
         <nav class="menu" aria-label="Secciones">
           <a href="#sedes">Sedes</a>
           <a href="#metodologia">Metodología</a>
+          <a href="#quienes-somos">Quiénes somos</a>
           <a href="#copa">Copa Newen</a>
           <a class="actual" href="https://wa.me/56999084457" target="_blank" rel="noopener">WhatsApp</a>
         </nav>
@@ -207,10 +220,49 @@
     </div>
   </section>
 
+  <section class="seccion" id="quienes-somos">
+    <div class="contenedor">
+      <div class="seccion-titulo">
+        <span class="display numero">03</span>
+        <h2 class="display">Quiénes somos</h2>
+      </div>
+      <div class="equipo">
+        <article class="persona">
+          <span class="display iniciales" aria-hidden="true">SM</span>
+          <b>Sebastián Matus</b><span class="rol">Encargado y profesor</span><p>Profesor de Educación Física y Salud, preparador físico de fútbol profesional. Coordina la Copa Newen.</p>
+        </article>
+        <article class="persona">
+          <span class="display iniciales" aria-hidden="true">JS</span>
+          <b>Javier Sáez Maturana</b><span class="rol">Profesor</span><p>Profesor de Educación Física y Salud, especialista en ejercicio físico y salud.</p>
+        </article>
+        <article class="persona">
+          <span class="display iniciales" aria-hidden="true">CA</span>
+          <b>Claudio Andrades</b><span class="rol">Preparador de arqueros</span><p>A cargo del entrenamiento específico de arqueros en ambas sedes. Formación INAF.</p>
+        </article>
+        <article class="persona">
+          <span class="display iniciales" aria-hidden="true">EP</span>
+          <b>Erick Painenao</b><span class="rol">Preparación física</span><p>Profesional del área de preparación física de la academia.</p>
+        </article>
+        
+      </div>
+      <div class="colaboradores">
+        <div><b>Lion Training</b><span>Centro de ejercicio físico y salud, Padre Las Casas</span></div>
+        <div><b>Lion Suplementos</b><span>Suplementación deportiva</span></div>
+        <div><b>MS Sports</b><span>Suplementación deportiva</span></div>
+        <div><b>Clínica KinetMec</b><span>Rehabilitación física</span></div>
+        <div><b>Goal Factory</b><span>Fútbol</span></div>
+        <div><b>Harry Barbershop</b><span>Sponsor</span></div>
+        <div><b>La Quadrada Pizza</b><span>Sponsor</span></div>
+        <div><b>Enzo Sports</b><span>Sponsor</span></div>
+        
+      </div>
+    </div>
+  </section>
+
   <section class="copa" id="copa">
     <div class="contenedor">
       <div class="copa-texto">
-        <span class="display numero">03</span>
+        <span class="display numero">04</span>
         <h2 class="display">Copa Newen</h2>
         <p>El cuadrangular de verano que la academia organiza desde 2023 entre sus sedes y academias invitadas. Edición 2026: Cancha Las Rocas, Padre Las Casas.</p>
         <a class="boton boton-lima" href="https://wa.me/56999084457" target="_blank" rel="noopener">WhatsApp +56 9 9908 4457</a>
