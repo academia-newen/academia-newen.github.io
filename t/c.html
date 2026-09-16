@@ -100,6 +100,22 @@
   .colaboradores div { display: flex; gap: 8px; align-items: baseline; }
   .colaboradores b { font-weight: 700; }
   .colaboradores span { font-size: 13px; color: var(--apagado); }
+  .club-intro { margin: -8px 0 28px; font-size: 17px; color: var(--apagado); max-width: 640px; }
+  .club { display: grid; grid-template-columns: 1fr; gap: 32px; }
+  .ficha-club { margin: 0; display: flex; flex-direction: column; }
+  .ficha-club div { display: flex; flex-direction: column; gap: 4px; padding: 12px 0; border-bottom: 1px solid var(--linea); }
+  .ficha-club dt { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--verde); }
+  .ficha-club dd { margin: 0; font-size: 17px; font-weight: 500; }
+  .club-columna { display: flex; flex-direction: column; gap: 14px; }
+  .club-columna h3 { margin: 0; font-size: 30px; }
+  .directorio { list-style: none; margin: 0 0 12px; padding: 0; }
+  .directorio li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--linea); font-size: 16px; }
+  .directorio .cargo { font-weight: 700; }
+  .documentos { display: flex; flex-direction: column; gap: 10px; }
+  .documento { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 16px; border: 2px solid var(--texto); font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .documento.pendiente { border-color: var(--linea); color: var(--apagado); text-transform: none; letter-spacing: 0; font-weight: 500; font-size: 15px; }
+  .pie-marca { display: flex; align-items: center; gap: 12px; color: var(--apagado); }
+  .pie-marca img { height: 28px; width: auto; }
   .copa { margin-top: 40px; background: var(--texto); color: var(--fondo); padding: 56px 0; }
   .copa .contenedor { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
   .copa-texto { display: flex; flex-direction: column; gap: 18px; }
@@ -120,6 +136,8 @@
     .sede-lista div { flex-direction: row; justify-content: space-between; gap: 16px; }
     .pilares { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
     .equipo { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ficha-club div { flex-direction: row; justify-content: space-between; align-items: baseline; gap: 24px; }
+    .ficha-club dd { text-align: right; }
     .cita { grid-template-columns: 1fr 2fr; gap: 40px; }
   }
   @media (min-width: 900px) {
@@ -130,6 +148,7 @@
     .hero-texto { padding-bottom: 12px; }
     .seccion { padding: 80px 0 40px; }
     .sedes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .club { grid-template-columns: 1.3fr 1fr; gap: 48px; }
     .pilares { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
     .equipo { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
     .copa { padding: 72px 0; }
@@ -153,6 +172,7 @@
           <a href="#sedes">Sedes</a>
           <a href="#metodologia">Metodología</a>
           <a href="#quienes-somos">Quiénes somos</a>
+          <a href="#el-club">El club</a>
           <a href="#copa">Copa Newen</a>
           <a class="actual" href="https://wa.me/56999084457" target="_blank" rel="noopener">WhatsApp</a>
         </nav>
@@ -259,10 +279,40 @@
     </div>
   </section>
 
+  <section class="seccion" id="el-club">
+    <div class="contenedor">
+      <div class="seccion-titulo">
+        <span class="display numero">04</span>
+        <h2 class="display">El club</h2>
+      </div>
+      <p class="club-intro">Club Deportivo con personalidad jurídica. Los datos que un fondo público, una municipalidad o un aliado necesitan para trabajar con nosotros.</p>
+      <div class="club">
+        <dl class="ficha-club">
+          <div><dt>Nombre legal</dt><dd>Por confirmar</dd></div>
+          <div><dt>RUT</dt><dd>Por confirmar</dd></div>
+          <div><dt>Registro Nacional de Organizaciones Deportivas (IND)</dt><dd>Por confirmar</dd></div>
+          <div><dt>Comuna</dt><dd>Temuco y Padre Las Casas</dd></div>
+          <div><dt>Correo institucional</dt><dd>Por confirmar</dd></div>
+        </dl>
+        <div class="club-columna">
+          <h3 class="display">Directorio vigente</h3>
+          <ul class="directorio">
+            <li><span class="cargo">Presidente</span><span>Por confirmar</span></li>
+            <li><span class="cargo">Secretario</span><span>Por confirmar</span></li>
+            <li><span class="cargo">Tesorero</span><span>Por confirmar</span></li>
+            
+          </ul>
+          <h3 class="display">Documentos</h3>
+          <div class="documentos"><span class="documento pendiente">Estatutos: pendiente de entrega por el club</span><span class="documento pendiente">Memoria anual: pendiente de entrega por el club</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="copa" id="copa">
     <div class="contenedor">
       <div class="copa-texto">
-        <span class="display numero">04</span>
+        <span class="display numero">05</span>
         <h2 class="display">Copa Newen</h2>
         <p>El cuadrangular de verano que la academia organiza desde 2023 entre sus sedes y academias invitadas. Edición 2026: Cancha Las Rocas, Padre Las Casas.</p>
         <a class="boton boton-lima" href="https://wa.me/56999084457" target="_blank" rel="noopener">WhatsApp +56 9 9908 4457</a>
@@ -279,7 +329,7 @@
 <footer class="pie">
   <div class="contenedor">
     <span>Academia de Fútbol Newen · @academiadefutbol_newen</span>
-    <span>Sitio hecho por INCBA</span>
+    <a class="pie-marca" href="https://incba.cl" target="_blank" rel="noopener"><span>Sitio hecho por</span><img src="/img/incba-logo-oscuro.png" alt="INCBA Consultora Tecnológica" width="112" height="28"></a>
   </div>
 </footer>
 

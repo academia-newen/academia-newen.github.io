@@ -106,6 +106,21 @@
   .colaborador { display: flex; flex-direction: column; gap: 2px; border: 1px solid var(--linea); padding: 10px 14px; min-width: 0; }
   .colaborador b { font-size: 15px; color: #fff; }
   .colaborador span { font-size: 12px; color: var(--apagado); }
+  .club { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  .ficha-club { margin: 0; display: flex; flex-direction: column; background: var(--panel); border-top: 4px solid var(--acento); }
+  .ficha-club div { display: flex; flex-direction: column; gap: 4px; padding: 16px 20px; border-bottom: 1px solid var(--linea); }
+  .ficha-club dt { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--acento); }
+  .ficha-club dd { margin: 0; font-size: 17px; color: #fff; }
+  .club-columna { display: flex; flex-direction: column; gap: 14px; }
+  .club-columna h3 { margin: 0; font-size: 30px; color: #fff; }
+  .directorio { list-style: none; margin: 0 0 10px; padding: 0; display: flex; flex-direction: column; }
+  .directorio li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--linea); font-size: 16px; color: var(--suave); }
+  .directorio .cargo { font-weight: 700; color: #fff; }
+  .documentos { display: flex; flex-direction: column; gap: 10px; }
+  .documento { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 16px; border: 1px solid var(--acento); color: var(--acento); font-weight: 600; font-size: 15px; }
+  .documento.pendiente { border-color: var(--linea); color: var(--apagado); font-weight: 500; }
+  .pie-marca { display: flex; align-items: center; gap: 12px; }
+  .pie-marca img { height: 28px; width: auto; }
   .copa { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
   .copa-texto { display: flex; flex-direction: column; gap: 18px; }
   .copa-texto h2 { margin: 0; font-size: clamp(56px, 9vw, 96px); color: #fff; }
@@ -135,6 +150,8 @@
     .marca-sub { display: block; }
     .programas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .equipo { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .ficha-club div { flex-direction: row; justify-content: space-between; align-items: baseline; gap: 24px; }
+    .ficha-club dd { text-align: right; }
     .metodologia-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; }
     .contacto { padding: 44px 40px; }
     .contacto-acciones { flex-direction: row; flex-wrap: wrap; align-items: center; }
@@ -150,6 +167,7 @@
     .metodologia img { height: 100%; min-height: 520px; }
     .metodologia-texto { padding: 64px; }
     .copa { grid-template-columns: 1.2fr 1fr; gap: 56px; }
+    .club { grid-template-columns: 1.3fr 1fr; gap: 40px; }
     .copa-foto { margin-left: 24px; }
     .copa-foto .sello { left: -24px; bottom: -24px; }
     .contacto { flex-direction: row; align-items: center; justify-content: space-between; padding: 56px 64px; }
@@ -174,6 +192,7 @@
       <a href="#programas">Programas</a>
       <a href="#metodologia">Metodología</a>
       <a href="#quienes-somos">Quiénes somos</a>
+      <a href="#el-club">El club</a>
       <a href="#copa">Copa Newen</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -286,6 +305,35 @@
     </div>
   </section>
 
+  <section class="seccion" id="el-club">
+    <div class="contenedor">
+      <div class="seccion-cabeza">
+        <h2 class="display">El club</h2>
+        <p>Club Deportivo con personalidad jurídica. Los datos formales que un fondo público, una municipalidad o un aliado necesitan para trabajar con nosotros.</p>
+      </div>
+      <div class="club">
+        <dl class="ficha-club">
+          <div><dt>Nombre legal</dt><dd>Por confirmar</dd></div>
+          <div><dt>RUT</dt><dd>Por confirmar</dd></div>
+          <div><dt>Registro Nacional de Organizaciones Deportivas (IND)</dt><dd>Por confirmar</dd></div>
+          <div><dt>Comuna</dt><dd>Temuco y Padre Las Casas</dd></div>
+          <div><dt>Correo institucional</dt><dd>Por confirmar</dd></div>
+        </dl>
+        <div class="club-columna">
+          <h3 class="display">Directorio vigente</h3>
+          <ul class="directorio">
+            <li><span class="cargo">Presidente</span><span>Por confirmar</span></li>
+            <li><span class="cargo">Secretario</span><span>Por confirmar</span></li>
+            <li><span class="cargo">Tesorero</span><span>Por confirmar</span></li>
+            
+          </ul>
+          <h3 class="display">Documentos</h3>
+          <div class="documentos"><span class="documento pendiente">Estatutos: pendiente de entrega por el club</span><span class="documento pendiente">Memoria anual: pendiente de entrega por el club</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="seccion" id="copa">
     <div class="contenedor copa">
       <div class="copa-texto">
@@ -327,7 +375,7 @@
 <footer class="pie">
   <div class="contenedor">
     <span>Academia de Fútbol Newen · Temuco y Padre Las Casas</span>
-    <span>Sitio hecho por INCBA</span>
+    <a class="pie-marca" href="https://incba.cl" target="_blank" rel="noopener"><span>Sitio hecho por</span><img src="/img/incba-logo-claro.png" alt="INCBA Consultora Tecnológica" width="112" height="28"></a>
   </div>
 </footer>
 
