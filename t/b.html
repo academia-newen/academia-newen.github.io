@@ -22,237 +22,348 @@
 </head>
 <body>
 
-<!-- Propuesta B: Institucional. Fondo claro, verde oscuro del escudo, tabla
-     de sedes y horarios y fila de cifras. Los datos ({{...}}) salen de NEGOCIO
-     en src/site.config.mjs. -->
+<!-- Propuesta B: Institucional. Presentación inspirada en manutd.com (pedido de
+     Camilo, 16-09-2026): franja de colaboradores arriba, cabecera clara con
+     escudo y menú en serif, portada a sangre tipo "día de partido" con titular
+     serif, línea de datos, cajas de cifras y botón píldora; tarjetas con foto
+     16:9 y esquinas redondeadas; bloque de programas al estilo de las tarjetas
+     de partidos; banda negra con el escudo. Todo con marcado, colores (los
+     verdes del escudo en vez del rojo) y fotos propios: no se copia código ni
+     activos del Manchester United. Tipografías equivalentes de Google Fonts:
+     Source Serif 4 para los títulos e Inter para el texto. Los datos ({{...}})
+     salen de src/site.config.mjs. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --fondo: #f6f7f2; --blanco: #ffffff; --texto: #16241a; --secundario: #3f4d44; --apagado: #5c6b60;
-    --verde: #0f3d1e; --lima: #c6f000; --lima-oscuro: #5a7a00; --lima-claro: #e4f2c8; --linea: #e1e5da; --linea-fuerte: #d5dccd;
+    --negro: #000000; --carbon: #1a1a1a; --gris-oscuro: #4a4a4a; --gris-borde: #d1d1d1;
+    --gris-fondo: #f8f8f8; --gris-2: #f2f2f2; --blanco: #ffffff;
+    --verde: #0f3d1e; --verde-vivo: #1f8a3a; --verde-boton: #14532d; --verde-boton-hover: #0f3d1e;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--fondo); color: var(--texto); font-family: 'Source Sans 3', 'Segoe UI', Arial, sans-serif; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  body { margin: 0; background: var(--gris-fondo); color: var(--negro); font-family: 'Inter', 'Segoe UI', Arial, sans-serif; font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
   img { display: block; max-width: 100%; }
-  a { color: var(--verde); text-decoration: none; }
-  a:hover { color: var(--lima-oscuro); }
-  .display { font-family: 'Archivo', 'Arial Black', Arial, sans-serif; font-weight: 900; letter-spacing: -0.02em; line-height: 1.05; }
-  .contenedor { width: 100%; max-width: 1296px; margin: 0 auto; padding: 0 16px; }
-  .etiqueta { font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lima-oscuro); }
-  .boton { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 24px; border-radius: 999px; font-size: 16px; font-weight: 600; }
-  .boton-primario { background: var(--verde); color: #fff; }
-  .boton-primario:hover { background: #0a2d15; color: #fff; }
-  .boton-secundario { border: 2px solid var(--verde); color: var(--verde); }
-  .boton-secundario:hover { background: var(--lima-claro); color: var(--verde); }
+  a { color: var(--negro); text-decoration: none; }
+  a:hover { color: var(--verde-vivo); }
+  .serif { font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif; font-weight: 600; letter-spacing: 0; }
+  .contenedor { width: 100%; max-width: 1272px; margin: 0 auto; padding: 0 16px; }
+  .pildora { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 24px; border-radius: 999px; font-size: 16px; font-weight: 600; }
+  .pildora-verde { background: var(--verde-boton); color: var(--blanco); }
+  .pildora-verde:hover { background: var(--verde-boton-hover); color: var(--blanco); }
+  .pildora-borde { border: 1px solid var(--gris-borde); color: var(--carbon); background: var(--blanco); }
+  .pildora-borde:hover { border-color: var(--carbon); color: var(--carbon); }
+  .pildora-clara { background: var(--blanco); color: var(--carbon); }
+  .pildora-clara:hover { background: var(--gris-2); color: var(--carbon); }
+  .etiqueta { font-size: 14px; font-weight: 600; color: var(--verde-vivo); }
+  .meta { font-size: 14px; color: var(--gris-oscuro); }
+  .meta b { color: var(--carbon); font-weight: 600; }
+  .meta .punto { margin: 0 8px; color: var(--gris-borde); }
 
-  .cabecera { position: sticky; top: 0; z-index: 20; background: var(--blanco); border-bottom: 1px solid var(--linea); }
-  .cabecera .contenedor { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
-  .marca { display: flex; align-items: center; gap: 12px; }
-  .marca img { width: 48px; height: 43px; object-fit: contain; }
-  .marca-titulo { display: block; font-size: 17px; color: var(--verde); }
-  .marca-sub { display: none; font-size: 13px; color: var(--apagado); }
-  .menu { display: none; align-items: center; gap: 28px; font-size: 16px; font-weight: 600; }
-  .menu a { color: var(--texto); }
-  .menu a:hover { color: var(--verde); }
-  .cabecera .boton { min-height: 40px; padding: 8px 18px; font-size: 15px; }
+  /* Franja de colaboradores, como la de partners del referente */
+  .franja { background: var(--negro); color: var(--blanco); }
+  .franja .contenedor { display: flex; align-items: center; gap: 28px; min-height: 44px; overflow-x: auto; white-space: nowrap; }
+  .franja span { font-size: 13px; font-weight: 600; letter-spacing: 0.02em; color: #d9d9d9; }
 
-  .hero { padding: 48px 0 40px; }
-  .hero .contenedor { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
-  .hero-texto { display: flex; flex-direction: column; gap: 20px; }
-  .chip { align-self: flex-start; font-size: 14px; font-weight: 600; color: var(--verde); background: var(--lima-claro); padding: 7px 14px; border-radius: 999px; }
-  .hero h1 { margin: 0; font-size: clamp(40px, 6vw, 76px); color: var(--verde); text-wrap: balance; }
-  .hero p { margin: 0; font-size: 19px; color: var(--secundario); max-width: 600px; }
-  .hero-acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
-  .hero-foto { position: relative; }
-  .hero-foto img { width: 100%; height: 320px; object-fit: cover; border-radius: 18px; }
-  .hero-pie { position: absolute; left: 16px; bottom: 16px; right: 16px; background: var(--blanco); border-radius: 12px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 24px rgba(15, 61, 30, 0.15); font-size: 14px; font-weight: 600; }
-  .hero-pie::before { content: ''; width: 12px; height: 12px; border-radius: 50%; background: var(--lima-oscuro); flex: none; }
+  /* Cabecera clara con escudo y menú serif */
+  .cabecera { position: sticky; top: 0; z-index: 20; background: var(--gris-fondo); border-bottom: 1px solid var(--gris-2); }
+  .cabecera .contenedor { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; min-height: 72px; }
+  .cabecera .escudo { grid-column: 2; justify-self: center; display: flex; align-items: center; gap: 12px; }
+  .cabecera .escudo img { width: 46px; height: 42px; object-fit: contain; }
+  .cabecera .escudo span { display: none; }
+  .menu { display: none; }
+  .icono-wa { grid-column: 3; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--carbon); }
+  .icono-wa svg { width: 22px; height: 22px; }
+  .cabecera .pildora { display: none; }
 
-  .cifras { border-top: 1px solid var(--linea-fuerte); border-bottom: 1px solid var(--linea-fuerte); padding: 24px 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-  .cifra b { display: block; font-size: 32px; color: var(--verde); }
-  .cifra span { font-size: 15px; color: var(--apagado); }
+  /* Portada tipo día de partido */
+  .portada { position: relative; min-height: 640px; display: flex; align-items: center; color: var(--blanco); overflow: hidden; }
+  .portada-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .portada-velo { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 55%, rgba(15,61,30,0.35) 100%); }
+  .portada .contenedor { position: relative; padding-top: 56px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 24px; }
+  .portada-titular { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+  .portada-titular img { width: 84px; height: 76px; object-fit: contain; flex: none; }
+  .portada h1 { margin: 0; font-size: clamp(44px, 8vw, 88px); line-height: 1.02; text-wrap: balance; }
+  .portada .meta { color: #d1d1d1; font-size: 16px; }
+  .portada .meta b { color: var(--blanco); }
+  .portada .meta .punto { color: #8a8a8a; }
+  .cajas { display: flex; flex-wrap: wrap; gap: 0; background: rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 8px; align-self: flex-start; }
+  .caja { display: flex; flex-direction: column; align-items: center; min-width: 88px; padding: 4px 14px; border-left: 1px solid rgba(255,255,255,0.18); }
+  .caja:first-child { border-left: 0; }
+  .caja b { font-size: 34px; line-height: 1.1; }
+  .caja span { font-size: 14px; color: #d1d1d1; }
+  .portada-acciones { display: flex; flex-wrap: wrap; gap: 12px; }
 
-  .seccion { padding: 64px 0 40px; }
-  .seccion-cabeza { display: flex; flex-direction: column; gap: 10px; max-width: 720px; margin-bottom: 28px; }
-  .seccion-cabeza h2 { margin: 0; font-size: clamp(32px, 4.5vw, 46px); color: var(--verde); }
-  .seccion-cabeza p { margin: 0; font-size: 18px; color: var(--secundario); }
+  /* Secciones y tarjetas de noticias */
+  .seccion { padding: 56px 0 24px; }
+  .seccion-cabeza { display: flex; flex-direction: column; gap: 4px; margin-bottom: 24px; }
+  .seccion-cabeza h2 { margin: 0; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.2; color: var(--carbon); }
+  .seccion-cabeza p { margin: 0; font-size: 16px; color: var(--gris-oscuro); }
+  .tarjetas { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  .tarjeta { background: var(--blanco); border-radius: 16px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
+  .tarjeta img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+  .tarjeta-cuerpo { padding: 16px 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+  .tarjeta h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.3; color: var(--negro); }
+  .tarjeta p { margin: 0; font-size: 14px; color: var(--gris-oscuro); }
 
-  .tabla { background: var(--blanco); border: 1px solid var(--linea); border-radius: 16px; overflow: hidden; }
-  .tabla-cabeza { display: none; }
-  .fila { display: grid; grid-template-columns: 1fr; gap: 6px; padding: 18px 20px; border-top: 1px solid var(--linea); font-size: 16px; }
-  .fila:first-of-type { border-top: 0; }
-  .fila .programa { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--verde); font-size: 18px; }
-  .fila .comuna { color: var(--apagado); }
-  .nuevo { font-size: 12px; background: var(--lima-claro); color: var(--verde); padding: 3px 8px; border-radius: 999px; }
+  /* Programas al estilo de las tarjetas de partidos */
+  .programas { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  .programa { background: var(--blanco); border: 1px solid var(--gris-2); border-radius: 16px; padding: 24px 20px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+  .programa .cabecera-programa { font-size: 14px; font-weight: 600; color: var(--carbon); }
+  .programa .marcador { display: flex; align-items: center; gap: 14px; }
+  .programa .marcador img { width: 56px; height: 50px; object-fit: contain; }
+  .programa .horas { background: var(--carbon); color: var(--blanco); border-radius: 12px; padding: 10px 16px; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
+  .programa .horas.serif { font-size: 26px; font-weight: 600; }
+  .programa .nombre { font-size: 18px; font-weight: 600; }
+  .programa .recinto { font-size: 15px; color: var(--carbon); font-weight: 500; }
+  .programa .lugar { font-size: 14px; color: var(--gris-oscuro); margin-top: -8px; }
+  .programa .pildora { width: 100%; }
 
-  .metodologia { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
-  .metodologia img { width: 100%; height: 300px; object-fit: cover; border-radius: 18px; }
-  .metodologia-texto { display: flex; flex-direction: column; gap: 20px; }
-  .metodologia-texto h2 { margin: 0; font-size: clamp(32px, 4.5vw, 46px); color: var(--verde); }
-  .tarjetas { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 0; padding: 0; list-style: none; }
-  .tarjetas li { background: var(--blanco); border: 1px solid var(--linea); border-radius: 12px; padding: 16px 18px; font-size: 17px; font-weight: 600; }
-  .persona { display: flex; align-items: center; gap: 14px; margin-top: 4px; }
-  .persona-inicial { width: 52px; height: 52px; border-radius: 50%; background: var(--verde); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 17px; flex: none; }
-  .persona b { display: block; font-size: 17px; }
-  .persona span { font-size: 15px; color: var(--apagado); }
+  /* Banda negra con el escudo */
+  .banda { background: var(--negro); color: var(--blanco); padding: 48px 0; }
+  .banda .encabezado { display: flex; align-items: center; gap: 18px; margin-bottom: 8px; }
+  .banda .encabezado img { width: 72px; height: 66px; object-fit: contain; }
+  .banda h2 { margin: 0; font-size: clamp(26px, 3vw, 36px); line-height: 1.15; color: #d9d9d9; }
+  .banda .meta { color: #a9a9a9; margin-bottom: 24px; }
+  .banda .meta b { color: var(--blanco); }
+  .banda .tarjetas { grid-template-columns: 1fr; }
+  .banda .tarjeta { background: #f8f8f8; }
 
+  /* Quiénes somos */
   .equipo { display: grid; grid-template-columns: 1fr; gap: 16px; }
-  .ficha { display: flex; gap: 16px; background: var(--blanco); border: 1px solid var(--linea); border-radius: 16px; padding: 22px 20px; }
-  .ficha .persona-inicial { width: 56px; height: 56px; font-size: 18px; }
+  .ficha { display: flex; gap: 16px; background: var(--blanco); border-radius: 16px; padding: 20px; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+  .iniciales { flex: none; width: 56px; height: 56px; border-radius: 50%; background: var(--verde); color: var(--blanco); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 18px; }
   .ficha-texto { display: flex; flex-direction: column; gap: 2px; }
-  .ficha-texto b { font-size: 18px; }
-  .ficha-texto .rol { font-size: 14px; font-weight: 600; color: var(--lima-oscuro); }
-  .ficha-texto p { margin: 6px 0 0; font-size: 15px; color: var(--apagado); }
-  .colaboradores { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-  .colaborador { display: flex; flex-direction: column; background: var(--blanco); border: 1px solid var(--linea); border-radius: 12px; padding: 10px 14px; }
-  .colaborador b { font-size: 15px; color: var(--verde); }
-  .colaborador span { font-size: 13px; color: var(--apagado); }
-  .club { display: grid; grid-template-columns: 1fr; gap: 24px; }
-  .ficha-club { margin: 0; display: flex; flex-direction: column; background: var(--blanco); border: 1px solid var(--linea); border-radius: 16px; overflow: hidden; }
-  .ficha-club div { display: flex; flex-direction: column; gap: 4px; padding: 16px 20px; border-top: 1px solid var(--linea); }
-  .ficha-club div:first-child { border-top: 0; }
-  .ficha-club dt { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--apagado); }
-  .ficha-club dd { margin: 0; font-size: 17px; font-weight: 600; color: var(--verde); }
-  .club-columna { display: flex; flex-direction: column; gap: 14px; }
-  .club-columna h3 { margin: 0; font-size: 22px; color: var(--verde); }
-  .directorio { list-style: none; margin: 0 0 10px; padding: 0; background: var(--blanco); border: 1px solid var(--linea); border-radius: 12px; }
-  .directorio li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 18px; border-top: 1px solid var(--linea); font-size: 16px; }
-  .directorio li:first-child { border-top: 0; }
-  .directorio .cargo { font-weight: 600; color: var(--verde); }
-  .documentos { display: flex; flex-direction: column; gap: 10px; }
-  .documento { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 18px; border-radius: 999px; border: 2px solid var(--verde); color: var(--verde); font-weight: 600; font-size: 15px; }
-  .documento.pendiente { border-color: var(--linea-fuerte); color: var(--apagado); font-weight: 500; }
-  .pie-marca { display: flex; align-items: center; gap: 12px; color: var(--apagado); }
-  .pie-marca img { height: 28px; width: auto; }
-  .cta { background: var(--verde); border-radius: 20px; padding: 36px 24px; display: flex; flex-direction: column; gap: 20px; color: #fff; }
-  .cta h2 { margin: 0; font-size: clamp(30px, 4vw, 42px); }
-  .cta p { margin: 8px 0 0; font-size: 17px; color: #cfe0c4; max-width: 640px; }
-  .cta .boton { background: var(--lima); color: var(--verde); font-size: 18px; font-weight: 700; }
-  .cta .boton:hover { background: #fff; }
-  .redes { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 15px; }
-  .redes a { color: #cfe0c4; text-decoration: underline; text-underline-offset: 3px; }
-  .redes a:hover { color: #fff; }
+  .ficha-texto b { font-size: 16px; font-weight: 600; }
+  .ficha-texto .rol { font-size: 14px; font-weight: 600; color: var(--verde-vivo); }
+  .ficha-texto p { margin: 6px 0 0; font-size: 14px; color: var(--gris-oscuro); }
+  .colaboradores { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .colaborador { display: flex; flex-direction: column; background: var(--blanco); border: 1px solid var(--gris-2); border-radius: 16px; padding: 10px 16px; }
+  .colaborador b { font-size: 14px; font-weight: 600; }
+  .colaborador span { font-size: 13px; color: var(--gris-oscuro); }
 
-  .pie { background: var(--blanco); border-top: 1px solid var(--linea); padding: 24px 0; font-size: 14px; color: var(--apagado); }
-  .pie .contenedor { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; }
+  /* El club */
+  .club { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  .ficha-club { margin: 0; background: var(--blanco); border-radius: 16px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+  .ficha-club div { display: flex; flex-direction: column; gap: 4px; padding: 16px 20px; border-top: 1px solid var(--gris-2); }
+  .ficha-club div:first-child { border-top: 0; }
+  .ficha-club dt { font-size: 13px; color: var(--gris-oscuro); }
+  .ficha-club dd { margin: 0; font-size: 16px; font-weight: 600; color: var(--carbon); }
+  .club-columna { display: flex; flex-direction: column; gap: 12px; }
+  .club-columna h3 { margin: 0; font-size: 22px; color: var(--carbon); }
+  .directorio { list-style: none; margin: 0 0 8px; padding: 0; background: var(--blanco); border-radius: 16px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+  .directorio li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 20px; border-top: 1px solid var(--gris-2); font-size: 15px; }
+  .directorio li:first-child { border-top: 0; }
+  .directorio .cargo { font-weight: 600; color: var(--carbon); }
+  .documentos { display: flex; flex-wrap: wrap; gap: 10px; }
+  .documento { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 18px; border-radius: 999px; background: var(--verde-boton); color: var(--blanco); font-weight: 600; font-size: 15px; }
+  .documento.pendiente { background: var(--blanco); border: 1px solid var(--gris-borde); color: var(--gris-oscuro); font-weight: 500; }
+
+  /* Contacto y pie */
+  .cta { background: var(--verde); border-radius: 16px; padding: 32px 24px; display: flex; flex-direction: column; gap: 18px; color: var(--blanco); }
+  .cta h2 { margin: 0; font-size: clamp(26px, 3vw, 36px); line-height: 1.2; }
+  .cta p { margin: 6px 0 0; font-size: 16px; color: #cfe0c4; max-width: 620px; }
+  .cta-acciones { display: flex; flex-direction: column; gap: 10px; }
+  .redes { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; }
+  .redes a { color: #cfe0c4; text-decoration: underline; text-underline-offset: 3px; }
+  .redes a:hover { color: var(--blanco); }
+  .pie { background: var(--negro); color: #a9a9a9; padding: 32px 0; margin-top: 40px; font-size: 14px; }
+  .pie .contenedor { display: flex; flex-direction: column; gap: 18px; }
+  .pie-club { display: flex; align-items: center; gap: 12px; color: var(--blanco); font-weight: 600; }
+  .pie-club img { width: 40px; height: 36px; object-fit: contain; }
+  .pie-enlaces { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+  .pie-enlaces a { color: #d1d1d1; }
+  .pie-enlaces a:hover { color: var(--blanco); }
+  .pie-marca { display: flex; align-items: center; gap: 12px; color: #a9a9a9; }
+  .pie-marca img { height: 28px; width: auto; }
 
   @media (min-width: 640px) {
     .contenedor { padding: 0 32px; }
-    .marca-sub { display: block; }
-    .cifras { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .tarjetas { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .portada-titular { flex-direction: row; align-items: center; gap: 18px; }
+    .tarjetas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .programas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .equipo { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .banda .tarjetas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .ficha-club div { flex-direction: row; justify-content: space-between; align-items: baseline; gap: 24px; }
     .ficha-club dd { text-align: right; }
-    .hero-foto img { height: 420px; }
+    .cta-acciones { flex-direction: row; align-items: center; flex-wrap: wrap; }
+    .pie .contenedor { flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: wrap; }
   }
   @media (min-width: 900px) {
-    .menu { display: flex; }
-    .hero { padding: 88px 0 72px; }
-    .hero .contenedor { grid-template-columns: 1.05fr 1fr; gap: 56px; }
-    .hero p { font-size: 21px; }
-    .hero-foto img { height: 520px; }
-    .hero-pie { left: 24px; bottom: 24px; right: auto; font-size: 15px; }
-    .cifra b { font-size: 40px; }
-    .seccion { padding: 80px 0 48px; }
-    .tabla-cabeza { display: grid; grid-template-columns: 1.2fr 1.3fr 1.5fr 0.8fr; gap: 24px; padding: 14px 28px; background: #eef2e6; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--apagado); }
-    .fila { grid-template-columns: 1.2fr 1.3fr 1.5fr 0.8fr; gap: 24px; padding: 22px 28px; align-items: center; font-size: 17px; }
-    .fila:first-of-type { border-top: 1px solid var(--linea); }
-    .fila .programa { font-size: 17px; }
-    .fila .comuna { color: var(--texto); }
-    .metodologia { grid-template-columns: 1fr 1fr; gap: 56px; }
+    .cabecera .contenedor { grid-template-columns: auto 1fr auto; gap: 32px; min-height: 96px; }
+    .cabecera .escudo { grid-column: 1; justify-self: start; }
+    .cabecera .escudo img { width: 52px; height: 47px; }
+    .cabecera .escudo span { display: inline; font-size: 18px; color: var(--carbon); }
+    .menu { grid-column: 2; display: flex; align-items: center; gap: 28px; font-size: 18px; }
+    .menu a { color: var(--carbon); }
+    .menu a:hover { color: var(--verde-vivo); }
+    .icono-wa { display: none; }
+    .cabecera .pildora { grid-column: 3; display: inline-flex; min-height: 44px; padding: 10px 22px; font-size: 15px; }
+    .portada { min-height: 720px; }
+    .portada .contenedor { padding-top: 72px; padding-bottom: 72px; max-width: 1272px; }
+    .portada h1 { font-size: clamp(64px, 6.6vw, 96px); }
+    .portada .meta { font-size: 18px; }
+    .caja b { font-size: 44px; }
+    .seccion { padding: 72px 0 32px; }
+    .seccion-cabeza { flex-direction: row; align-items: baseline; justify-content: space-between; gap: 24px; }
+    .tarjetas { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .programas { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .banda { padding: 64px 0; }
+    .banda .tarjetas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .club { grid-template-columns: 1.3fr 1fr; gap: 40px; }
-    .metodologia img { height: 440px; }
-    .cta { flex-direction: row; align-items: center; justify-content: space-between; padding: 56px 64px; gap: 40px; }
-    .cta-acciones { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+    .cta { flex-direction: row; align-items: center; justify-content: space-between; padding: 48px 56px; gap: 40px; }
+    .cta-acciones { flex-direction: column; align-items: flex-end; }
   }
-  @media (min-width: 1100px) { .contenedor { padding: 0 72px; } }
+  @media (min-width: 1100px) { .contenedor { padding: 0 56px; } }
 </style>
+
+<div class="franja" aria-label="Colaboradores del club">
+  <div class="contenedor">
+    <span>Lion Training</span>
+    <span>Lion Suplementos</span>
+    <span>MS Sports</span>
+    <span>Clínica KinetMec</span>
+    <span>Goal Factory</span>
+    <span>Harry Barbershop</span>
+    <span>La Quadrada Pizza</span>
+    <span>Enzo Sports</span>
+    
+  </div>
+</div>
 
 <header class="cabecera">
   <div class="contenedor">
-    <a class="marca" href="#inicio" aria-label="Academia de Fútbol Newen, inicio">
-      <img src="/img/logo-newen.webp" alt="Escudo de Academia de Fútbol Newen" width="48" height="43">
-      <span>
-        <span class="display marca-titulo">Academia de Fútbol Newen</span>
-        <span class="marca-sub">Fútbol para adultos · Temuco y Padre Las Casas</span>
-      </span>
+    <a class="escudo" href="#inicio" aria-label="Academia de Fútbol Newen, inicio">
+      <img src="/img/logo-newen.webp" alt="Escudo de Academia de Fútbol Newen" width="52" height="47">
+      <span class="serif">Academia de Fútbol Newen</span>
     </a>
-    <nav class="menu" aria-label="Secciones">
+    <nav class="menu serif" aria-label="Secciones">
       <a href="#programas">Programas</a>
       <a href="#metodologia">Metodología</a>
+      <a href="#copa">Copa Newen</a>
       <a href="#quienes-somos">Quiénes somos</a>
       <a href="#el-club">El club</a>
-      <a href="#contacto">Contacto</a>
     </nav>
-    <a class="boton boton-primario" href="https://wa.me/56999084457" target="_blank" rel="noopener">Escríbenos</a>
+    <a class="icono-wa" href="https://wa.me/56999084457" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l2-5.2a8.4 8.4 0 0 1-1-4.3 8.5 8.5 0 0 1 8.5-8.5 8.4 8.4 0 0 1 8.5 8.5z"/></svg>
+    </a>
+    <a class="pildora pildora-verde" href="https://wa.me/56999084457" target="_blank" rel="noopener">Escríbenos</a>
   </div>
 </header>
 
 <main id="inicio">
-  <section class="hero">
+  <section class="portada">
+    <img class="portada-foto" src="/img/plantel-padre-las-casas.jpg" alt="Plantel de Academia Newen Padre Las Casas" width="1440" height="986">
+    <div class="portada-velo"></div>
     <div class="contenedor">
-      <div class="hero-texto">
-        <span class="chip">Matrículas 2026: inscríbete ahora</span>
-        <h1 class="display">Fútbol para adultos con metodología profesional</h1>
-        <p>Diez años aportando al deporte de la región, con sedes en Temuco y Padre Las Casas. Dos entrenamientos por semana, partidos amistosos mensuales y la Copa Newen en verano.</p>
-        <div class="hero-acciones">
-          <a class="boton boton-primario" href="https://wa.me/56999084457" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
-          <a class="boton boton-secundario" href="#programas">Ver sedes y horarios</a>
-        </div>
+      <div class="portada-titular">
+        <img src="/img/logo-newen.webp" alt="" width="84" height="76" aria-hidden="true">
+        <h1 class="serif">Entrena como<br>un profesional</h1>
       </div>
-      <div class="hero-foto">
-        <img src="/img/plantel-padre-las-casas.jpg" alt="Plantel de Academia Newen Padre Las Casas" width="1440" height="986">
-        <div class="hero-pie">Plantel Padre Las Casas, temporada 2026</div>
+      <p class="meta"><b>Fútbol para adultos</b><span class="punto">•</span>Temuco y Padre Las Casas<span class="punto">•</span>Matrículas 2026 abiertas</p>
+      <div class="cajas" aria-label="El club en cifras">
+        <div class="caja"><b class="serif">10</b><span>Años</span></div>
+        <div class="caja"><b class="serif">2</b><span>Sedes</span></div>
+        <div class="caja"><b class="serif">4</b><span>Programas</span></div>
+      </div>
+      <div class="portada-acciones">
+        <a class="pildora pildora-verde" href="https://wa.me/56999084457" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        <a class="pildora pildora-clara" href="#programas">Ver sedes y horarios</a>
       </div>
     </div>
   </section>
 
-  <div class="contenedor">
-    <div class="cifras">
-      <div class="cifra"><b class="display">10 años</b><span>aportando al deporte de la región</span></div>
-      <div class="cifra"><b class="display">2 sedes</b><span>Temuco y Padre Las Casas</span></div>
-      <div class="cifra"><b class="display">4 programas</b><span>adultos, arqueros y femenino</span></div>
-      <div class="cifra"><b class="display">Copa Newen</b><span>cuadrangular propio desde 2023</span></div>
-    </div>
-  </div>
-
   <section class="seccion" id="programas">
     <div class="contenedor">
       <div class="seccion-cabeza">
-        <span class="etiqueta">Programas</span>
-        <h2 class="display">Elige tu sede y tu horario</h2>
+        <h2 class="serif">Programas y horarios</h2>
         <p>Todos los programas comparten el mismo cuerpo técnico y la misma planificación.</p>
       </div>
-      <div class="tabla">
-        <div class="tabla-cabeza"><span>Programa</span><span>Recinto</span><span>Días y horario</span><span>Comuna</span></div>
-        <div class="fila"><span class="programa">Adultos</span><span>Estadio Pueblo Nuevo</span><span>Lunes y miércoles, 18:30 a 20:00</span><span class="comuna">Temuco</span></div>
-        <div class="fila"><span class="programa">Adultos</span><span>Estadio El Alto</span><span>Lunes 19:00 a 21:00 y miércoles 21:00 a 22:30</span><span class="comuna">Padre Las Casas</span></div>
-        <div class="fila"><span class="programa">Arqueros</span><span>Estadio Pueblo Nuevo · Estadio El Alto</span><span>Temuco: Lunes, 18:30 a 20:00. Padre Las Casas: Lunes, 19:00 a 21:00</span><span class="comuna">Ambas comunas</span></div>
-        <div class="fila"><span class="programa">Femenino <span class="nuevo">Nuevo</span></span><span>Cancha 3, Estadio Germán Becker</span><span>Lunes y viernes, 19:00 a 20:00 · Clase de prueba gratuita</span><span class="comuna">Temuco</span></div>
+      <div class="programas">
+        <article class="programa">
+          <span class="cabecera-programa">Adultos · Temuco</span>
+          <div class="marcador"><img src="/img/logo-newen.webp" alt="" aria-hidden="true"><span class="horas serif">18:30 a 20:00</span></div>
+          <span class="nombre">Lunes y miércoles, 18:30 a 20:00</span>
+          <span class="recinto">Estadio Pueblo Nuevo</span>
+          <span class="lugar">Temuco</span>
+          <a class="pildora pildora-verde" href="https://wa.me/56999084457" target="_blank" rel="noopener">Inscribirme</a>
+        </article>
+        <article class="programa">
+          <span class="cabecera-programa">Adultos · Padre Las Casas</span>
+          <div class="marcador"><img src="/img/logo-newen.webp" alt="" aria-hidden="true"><span class="horas serif">19:00 a 21:00</span></div>
+          <span class="nombre">Lunes 19:00 a 21:00 y miércoles 21:00 a 22:30</span>
+          <span class="recinto">Estadio El Alto</span>
+          <span class="lugar">Padre Las Casas</span>
+          <a class="pildora pildora-verde" href="https://wa.me/56999084457" target="_blank" rel="noopener">Inscribirme</a>
+        </article>
+        <article class="programa">
+          <span class="cabecera-programa">Arqueros · Ambas sedes</span>
+          <div class="marcador"><img src="/img/logo-newen.webp" alt="" aria-hidden="true"><span class="horas serif">Lunes</span></div>
+          <span class="nombre">Temuco: Lunes, 18:30 a 20:00</span>
+          <span class="recinto">Padre Las Casas: Lunes, 19:00 a 21:00</span>
+          <span class="lugar">Estadio Pueblo Nuevo · Estadio El Alto</span>
+          <a class="pildora pildora-verde" href="https://wa.me/56999084457" target="_blank" rel="noopener">Inscribirme</a>
+        </article>
+        <article class="programa">
+          <span class="cabecera-programa">Femenino · Temuco</span>
+          <div class="marcador"><img src="/img/logo-newen.webp" alt="" aria-hidden="true"><span class="horas serif">19:00 a 20:00</span></div>
+          <span class="nombre">Lunes y viernes, 19:00 a 20:00</span>
+          <span class="recinto">Cancha 3, Estadio Germán Becker</span>
+          <span class="lugar">Clase de prueba gratuita</span>
+          <a class="pildora pildora-borde" href="https://wa.me/56999084457" target="_blank" rel="noopener">Pedir clase de prueba</a>
+        </article>
       </div>
     </div>
   </section>
 
   <section class="seccion" id="metodologia">
-    <div class="contenedor metodologia">
-      <img src="/img/entrenamiento-dia.jpg" alt="Entrenamiento de la academia" width="720" height="720" loading="lazy">
-      <div class="metodologia-texto">
-        <span class="etiqueta">Metodología</span>
-        <h2 class="display">Basada en el fútbol profesional</h2>
-        <ul class="tarjetas">
-          <li>Ejercicios técnicos, físicos y tácticos</li>
-          <li>Dos entrenamientos por semana</li>
-          <li>Partidos amistosos mensuales</li>
-          <li>Organización de campeonatos</li>
-        </ul>
-        <div class="persona">
-          <div class="persona-inicial" aria-hidden="true">SM</div>
-          <div><b>Sebastián Matus</b><span>Encargado y profesor, preparador físico de fútbol profesional</span></div>
-        </div>
+    <div class="contenedor">
+      <div class="seccion-cabeza">
+        <h2 class="serif">Metodología</h2>
+        <p>Basada en el fútbol profesional. A cargo de Sebastián Matus, Encargado y profesor, preparador físico de fútbol profesional.</p>
+      </div>
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <img src="/img/partido.jpg" alt="Jugadores de la academia en un partido" width="1440" height="962" loading="lazy">
+          <div class="tarjeta-cuerpo"><span class="etiqueta">Entrenamiento</span><h3>Ejercicios técnicos, físicos y tácticos</h3><p>Cada sesión combina los tres bloques, como en un plantel profesional.</p></div>
+        </article>
+        <article class="tarjeta">
+          <img src="/img/entrenamiento-dia.jpg" alt="Entrenamiento de la academia" width="720" height="720" loading="lazy">
+          <div class="tarjeta-cuerpo"><span class="etiqueta">Frecuencia</span><h3>Dos entrenamientos por semana</h3><p>Lunes y miércoles, en Temuco y en Padre Las Casas.</p></div>
+        </article>
+        <article class="tarjeta">
+          <img src="/img/entrenamiento-noche.jpg" alt="Entrenamiento nocturno" width="1440" height="811" loading="lazy">
+          <div class="tarjeta-cuerpo"><span class="etiqueta">Competencia</span><h3>Partidos amistosos mensuales</h3><p>Contra otras academias y entre las sedes del club.</p></div>
+        </article>
+        <article class="tarjeta">
+          <img src="/img/cancha-aerea.jpg" alt="Cancha vista desde arriba" width="1440" height="810" loading="lazy">
+          <div class="tarjeta-cuerpo"><span class="etiqueta">Campeonatos</span><h3>Organización de campeonatos</h3><p>La Copa Newen reúne en verano a las sedes y a academias invitadas.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="banda" id="copa">
+    <div class="contenedor">
+      <div class="encabezado">
+        <img src="/img/logo-newen.webp" alt="" aria-hidden="true">
+        <h2 class="serif">Copa Newen 2026<br>Cuadrangular de verano</h2>
+      </div>
+      <p class="meta"><b>Cancha Las Rocas, Padre Las Casas</b><span class="punto">•</span>Ediciones 2023, 2025 y 2026<span class="punto">•</span>Cuatro equipos por edición</p>
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <img src="/img/copa-newen-2026.jpg" alt="Plantel en la Copa Newen 2026" width="1200" height="967" loading="lazy">
+          <div class="tarjeta-cuerpo"><span class="etiqueta">Copa Newen</span><h3>La edición 2026 se jugó en la Cancha Las Rocas</h3></div>
+        </article>
+        <article class="tarjeta">
+          <img src="/img/copa-trofeos.jpg" alt="Trofeos de la Copa Newen" width="1000" height="999" loading="lazy">
+          <div class="tarjeta-cuerpo"><span class="etiqueta">Trofeos</span><h3>Copa, medallas y goleadores en cada edición</h3></div>
+        </article>
+        <article class="tarjeta">
+          <img src="/img/femenino.jpg" alt="Jugadora de la academia femenina" width="1400" height="910" loading="lazy">
+          <div class="tarjeta-cuerpo"><span class="etiqueta">Femenino</span><h3>La rama femenina entrena desde 2026 en el Estadio Germán Becker</h3></div>
+        </article>
       </div>
     </div>
   </section>
@@ -260,25 +371,24 @@
   <section class="seccion" id="quienes-somos">
     <div class="contenedor">
       <div class="seccion-cabeza">
-        <span class="etiqueta">Quiénes somos</span>
-        <h2 class="display">El equipo detrás de cada entrenamiento</h2>
-        <p>Diez años aportando al deporte de la región, con un cuerpo técnico estable y marcas que acompañan a la academia.</p>
+        <h2 class="serif">Quiénes somos</h2>
+        <p>Diez años aportando al deporte de la región, con un cuerpo técnico estable y marcas que acompañan al club.</p>
       </div>
       <div class="equipo">
         <article class="ficha">
-          <div class="persona-inicial" aria-hidden="true">SM</div>
+          <div class="iniciales" aria-hidden="true">SM</div>
           <div class="ficha-texto"><b>Sebastián Matus</b><span class="rol">Encargado y profesor</span><p>Profesor de Educación Física y Salud, preparador físico de fútbol profesional. Coordina la Copa Newen.</p></div>
         </article>
         <article class="ficha">
-          <div class="persona-inicial" aria-hidden="true">JS</div>
+          <div class="iniciales" aria-hidden="true">JS</div>
           <div class="ficha-texto"><b>Javier Sáez Maturana</b><span class="rol">Profesor</span><p>Profesor de Educación Física y Salud, especialista en ejercicio físico y salud.</p></div>
         </article>
         <article class="ficha">
-          <div class="persona-inicial" aria-hidden="true">CA</div>
+          <div class="iniciales" aria-hidden="true">CA</div>
           <div class="ficha-texto"><b>Claudio Andrades</b><span class="rol">Preparador de arqueros</span><p>A cargo del entrenamiento específico de arqueros en ambas sedes. Formación INAF.</p></div>
         </article>
         <article class="ficha">
-          <div class="persona-inicial" aria-hidden="true">EP</div>
+          <div class="iniciales" aria-hidden="true">EP</div>
           <div class="ficha-texto"><b>Erick Painenao</b><span class="rol">Preparación física</span><p>Profesional del área de preparación física de la academia.</p></div>
         </article>
         
@@ -300,8 +410,7 @@
   <section class="seccion" id="el-club">
     <div class="contenedor">
       <div class="seccion-cabeza">
-        <span class="etiqueta">El club</span>
-        <h2 class="display">Un club deportivo formal</h2>
+        <h2 class="serif">El club</h2>
         <p>Club Deportivo con personalidad jurídica. Los datos que un fondo público, una municipalidad o un aliado necesitan para trabajar con nosotros.</p>
       </div>
       <div class="club">
@@ -313,14 +422,14 @@
           <div><dt>Correo institucional</dt><dd>Por confirmar</dd></div>
         </dl>
         <div class="club-columna">
-          <h3 class="display">Directorio vigente</h3>
+          <h3 class="serif">Directorio vigente</h3>
           <ul class="directorio">
             <li><span class="cargo">Presidente</span><span>Por confirmar</span></li>
             <li><span class="cargo">Secretario</span><span>Por confirmar</span></li>
             <li><span class="cargo">Tesorero</span><span>Por confirmar</span></li>
             
           </ul>
-          <h3 class="display">Documentos</h3>
+          <h3 class="serif">Documentos</h3>
           <div class="documentos"><span class="documento pendiente">Estatutos: pendiente de entrega por el club</span><span class="documento pendiente">Memoria anual: pendiente de entrega por el club</span></div>
         </div>
       </div>
@@ -331,11 +440,11 @@
     <div class="contenedor">
       <div class="cta">
         <div>
-          <h2 class="display">¿Quieres entrenar con nosotros?</h2>
+          <h2 class="serif">¿Quieres entrenar con nosotros?</h2>
           <p>Escríbenos por WhatsApp y te contamos horarios, valores y cómo llegar a la sede más cercana.</p>
         </div>
         <div class="cta-acciones">
-          <a class="boton" href="https://wa.me/56999084457" target="_blank" rel="noopener">+56 9 9908 4457</a>
+          <a class="pildora pildora-clara" href="https://wa.me/56999084457" target="_blank" rel="noopener">+56 9 9908 4457</a>
           <div class="redes">
             <a href="https://www.instagram.com/academiadefutbol_newen/" target="_blank" rel="noopener">@academiadefutbol_newen</a>
             <a href="https://www.facebook.com/Academiadefutbolnewen" target="_blank" rel="noopener">Facebook</a>
@@ -348,8 +457,11 @@
 
 <footer class="pie">
   <div class="contenedor">
-    <span>Academia de Fútbol Newen · Temuco y Padre Las Casas</span>
-    <a class="pie-marca" href="https://incba.cl" target="_blank" rel="noopener"><span>Sitio hecho por</span><img src="/img/incba-logo-oscuro.png" alt="INCBA Consultora Tecnológica" width="112" height="28"></a>
+    <div class="pie-club"><img src="/img/logo-newen.webp" alt="" aria-hidden="true"><span>Academia de Fútbol Newen</span></div>
+    <nav class="pie-enlaces" aria-label="Enlaces del pie">
+      <a href="#programas">Programas</a><a href="#quienes-somos">Quiénes somos</a><a href="#el-club">El club</a><a href="https://www.instagram.com/academiadefutbol_newen/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/Academiadefutbolnewen" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <a class="pie-marca" href="https://incba.cl" target="_blank" rel="noopener"><span>Sitio hecho por</span><img src="/img/incba-logo-claro.png" alt="INCBA Consultora Tecnológica" width="112" height="28"></a>
   </div>
 </footer>
 
